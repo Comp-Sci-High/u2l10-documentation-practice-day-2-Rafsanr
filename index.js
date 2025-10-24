@@ -74,6 +74,7 @@ async function fetchMarsPhotos(url){
     console.log(data)
 }
 
+fetchMarsPhotos(requestUrl3)
 
 // -----------------------------------------------------
 // TASK 4: NASA Image and Video Library
@@ -90,7 +91,12 @@ async function fetchMarsPhotos(url){
 // -----------------------------------------------------
 // CALL IT
 
+let requestUrl4 = `https://images-api.nasa.gov/search?q={“Jupiter”}?api_key=${key}&media_type=image`
+async function fetchNasaImage(url){
+    let response = await fetch(url)
+    let data = response.json()
+    console.log(data)
+}
 
-
-
+fetchNasaImage(requestUrl4)
 
