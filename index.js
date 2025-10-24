@@ -7,6 +7,14 @@
 // API: People in Space (Open Notify)
 //
 // 1. Create a function called fetchPeopleInSpace.
+let requestUrl = "http://api.open-notify.org/astros.json"
+
+async function fetchPeopleInSpace(url) {
+let response = await fetch(url)
+let data = response.json()
+console.log(data.number)
+return data
+}
 // 2. Look up the documentation for the "People in Space" API.
 // 3. Write a fetch request to get a list of people currently in space.
 // 4. Convert the response to JSON.
@@ -15,7 +23,7 @@
 // -----------------------------------------------------
 // CALL IT
 
-
+fetchPeopleInSpace(requestUrl)
 
 
 // -----------------------------------------------------
@@ -31,8 +39,16 @@
 // 5. Log only the image URL or video URL for today's Astronomy Picture of the Day.
 // -----------------------------------------------------
 // CALL IT
+let key = "xLI0RCHK6L2t1fDoO4F1gV04unKmpPvkuB4ahdiU"
+let requestURL2 = `https://api.nasa.gov/planetary/apod?api_key=${key}`
+async function fetchAPOD(url) {
+    let response = await fetch(url)
+    let data = await response.json()
+    return data
+}
 
-
+let result = fetchAPOD(requestURL2)
+console.log(result)
 
 
 
@@ -51,9 +67,12 @@
 // 6. Then, log the camera name and image URL of the first photo in the list.
 // -----------------------------------------------------
 // CALL IT
-
-
-
+let requestUrl3 = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=xLI0RCHK6L2t1fDoO4F1gV04unKmpPvkuB4ahdiU?name"
+async function fetchMarsPhotos(url){
+    let response = await fetch(url)
+    let data = response.json()
+    console.log(data)
+}
 
 
 // -----------------------------------------------------
